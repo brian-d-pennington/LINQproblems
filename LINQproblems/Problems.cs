@@ -31,7 +31,20 @@ namespace LINQproblems
             return words;
         }   
 
+        public IEnumerable<string> WithoutDuplicates()
+        {
+            var listWithoutDuplicates = names.Distinct();
+            foreach (string name in names)
+            {
+                Console.WriteLine(name);
+            }
+            return listWithoutDuplicates;
+        }
 
+        public void GetClassAverage()
+        {
+            var 
+        }
     }
 
 }
