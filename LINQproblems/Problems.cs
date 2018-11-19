@@ -20,9 +20,18 @@ namespace LINQproblems
                 "98,100,66,74,55"
                 };
 
-        public void ReturnsTH()
+        public IEnumerable<string> ReturnsTH()
         {
-            var wordsWithTH = words.
+            var wordsWithTH = words.Where(w => w.Contains("th"));
+            foreach (string word in words)
+            {
+                Console.WriteLine(word);
+                
             }
+            return words;
+        }   
+
+
     }
+
 }
