@@ -19,7 +19,7 @@ namespace LINQproblems
                 "73,88,83,99,64",
                 "98,100,66,74,55"
                 };
-
+        // first problem
         public IEnumerable<string> ReturnsTH()
         {
             var wordsWithTH = words.Where(w => w.Contains("th"));
@@ -30,7 +30,7 @@ namespace LINQproblems
             }
             return words;
         }   
-
+        // second
         public IEnumerable<string> WithoutDuplicates()
         {
             var listWithoutDuplicates = names.Distinct();
@@ -40,10 +40,31 @@ namespace LINQproblems
             }
             return listWithoutDuplicates;
         }
-
+        // third
         public void GetClassAverage()
         {
-            var 
+            var classAverage = classGrades.Select(c => c.Split(',')).ToArray();
+            
+           
+        }
+
+         
+
+        public void AlphabetizeAndCount()
+        {
+            string fourStringToPass = "pennington";
+            char[] arrayChar = fourStringToPass.ToUpper().ToArray();
+            Array.Sort(arrayChar);
+            fourStringToPass = new string(arrayChar);
+
+            var charFrequencies = from c in fourStringToPass.ToArray()
+                                  orderby c
+                                  group c by c into groupFrequencies
+                                  select groupFrequencies;
+            foreach (var c in charFrequencies)
+                Console.WriteLine($"Character: {c.Key} Frequency: {c.Count()}");
+
+            Console.ReadLine();
         }
     }
 
