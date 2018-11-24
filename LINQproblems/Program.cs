@@ -13,7 +13,7 @@ namespace LINQproblems
             Problems problems = new Problems();
 
             problems.GetClassAverage();
-            problems.AlphabetizeAndCount();
+            //problems.AlphabetizeAndCount();
 
             Console.ReadLine();
 
