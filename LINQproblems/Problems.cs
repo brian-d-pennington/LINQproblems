@@ -8,34 +8,34 @@ namespace LINQproblems
 {
     class Problems
     {
-        //List<string> words = new List<string>() { "the", "bike", "this", "it", "tenth", "mathematics" };
+        List<string> words = new List<string>() { "the", "bike", "this", "it", "tenth", "mathematics" };
 
-        //List<string> names = new List<string>() { "Mike", "Brad", "Nevin", "Zack", "Mike" };
+        List<string> names = new List<string>() { "Mike", "Brad", "Nevin", "Zack", "Mike" };
 
 
-        // first problem
-        //public IEnumerable<string> ReturnsTH()
-        //{
-        //    var wordsWithTH = words.Where(w => w.Contains("th"));
-        //    foreach (string word in words)
-        //    {
-        //        Console.WriteLine(word);
+        //first problem
+        public IEnumerable<string> ReturnsTH()
+        {
+            var wordsWithTH = words.Where(w => w.Contains("th"));
+            foreach (string word in words)
+            {
+                Console.WriteLine(word);
 
-        //    }
-        //    return words;
-        //}   
-        // second
-        //public IEnumerable<string> WithoutDuplicates()
-        //{
-        //    var listWithoutDuplicates = names.Distinct();
-        //    foreach (string name in names)
-        //    {
-        //        Console.WriteLine(name);
-        //    }
-        //    return listWithoutDuplicates;
-        //}
-        // third
-        List<string> classGrades = new List<string>()
+            }
+            return words;
+        }
+        //second
+        public IEnumerable<string> WithoutDuplicates()
+        {
+            var listWithoutDuplicates = names.Distinct();
+            foreach (string name in names)
+            {
+                Console.WriteLine(name);
+            }
+            return listWithoutDuplicates;
+        }
+        //third
+       List<string> classGrades = new List<string>()
                 {
                 "80,100,92,89,65",
                 "93,81,78,84,69",
@@ -45,29 +45,29 @@ namespace LINQproblems
 
         public void GetClassAverage()
         {
-            var classArrays = classGrades.SelectMany(n => n.Split(',')).ToArray().Select(int.Parse).ToList().OrderByDescending(x => x).ToList().Take(16).Average();
-            Console.WriteLine(classArrays);
+            var classAverage = classGrades.SelectMany(n => n.Split(',')).ToArray().Select(int.Parse).ToList().OrderByDescending(x => x).ToList().Take(16).Average();
+            Console.WriteLine(classAverage);
         }
 
-         
+
         // fourth
-        //public void AlphabetizeAndCount()
-        //{
-        //    string stringToPass = "pennington";
-        //    char[] arrayChar = stringToPass.ToUpper().ToArray();
-        //    Array.Sort(arrayChar);
-        //    stringToPass = new string(arrayChar);
 
-        //    var charFrequencies = from c in stringToPass.ToArray()
-        //                          orderby c
-        //                          group c by c into groupFrequencies
-        //                          select groupFrequencies;
-        //    foreach (var c in charFrequencies)
-        //    {
-        //        Console.Write(c);
-        //    }
+        string stringToPass = "pennington";
+        public void AlphabetizeAndCount()
+        {
+            var stringArray = stringToPass.ToUpper().ToArray();
+            Array.Sort(stringArray);
+            string arrayToString = new string(stringArray);
+           
+            var charFrequencies = from c in arrayToString.ToArray()
+                                  group c by c into groupFrequencies
+                                  select groupFrequencies;
+            foreach (var c in charFrequencies)
+                Console.Write($"{c.Key}{c.Count()}");
 
-        //}
+            Console.ReadLine();
+
+        }
     }
 
 }
