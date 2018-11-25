@@ -19,10 +19,12 @@ namespace LINQproblems
             var wordsWithTH = words.Where(w => w.Contains("th"));
             foreach (string word in words)
             {
-                Console.WriteLine(word);
+                Console.Write(word + " ");
 
             }
+            Console.WriteLine(" ");
             return words;
+            
         }
         //second
         public IEnumerable<string> WithoutDuplicates()
@@ -30,7 +32,7 @@ namespace LINQproblems
             var listWithoutDuplicates = names.Distinct();
             foreach (string name in names)
             {
-                Console.WriteLine(name);
+                Console.Write(name + " ");
             }
             return listWithoutDuplicates;
         }
@@ -46,7 +48,7 @@ namespace LINQproblems
         public void GetClassAverage()
         {
             var classAverage = classGrades.SelectMany(n => n.Split(',')).ToArray().Select(int.Parse).ToList().OrderByDescending(x => x).ToList().Take(16).Average();
-            Console.WriteLine(classAverage);
+            Console.WriteLine("\r\n" + classAverage);
         }
 
 
